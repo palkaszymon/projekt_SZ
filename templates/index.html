@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MRP Algorithm for Bicycle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#addRow').click(function() {
+                const newRow = $('#inputFormRow').clone().removeAttr('id');
+                newRow.find('input').val('');
+                $('#newRow').append(newRow);
+            });
+
+            $(document).on('click', '.removeRow', function() {
+                $(this).closest('#inputFormRow').remove();
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Enter Demand and Production Data</h2>
+    <form action="" method="post">
+        <p>Enter Demand and Production Data for each non-empty week:</p>
+        <div id="inputFormRow">
+            <div class="input-group mb-3">
+                <input type="text" name="week[]" class="form-control m-input" placeholder="Week Number" autocomplete="off">
+                <input type="text" name="demand[]" class="form-control m-input" placeholder="Demand" autocomplete="off">
+                <input type="text" name="production[]" class="form-control m-input" placeholder="Production" autocomplete="off">
+                <div class="input-group-append">
+                    <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="newRow"></div>
+        <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+
+        <h4>Frame Settings:</h4>
+        <input type="text" name="frame_batch_size" class="form-control m-input" placeholder="Frame Batch Size" required>
+        <input type="text" name="frame_start_qty" class="form-control m-input" placeholder="Frame Starting Quantity" required>
+    
+        <h4>Wheel Settings:</h4>
+        <input type="text" name="wheel_batch_size" class="form-control m-input" placeholder="Wheel Batch Size" required>
+        <input type="text" name="wheel_start_qty" class="form-control m-input" placeholder="Wheel Starting Quantity" required>
+    
+        <h4>Rim Settings:</h4>
+        <input type="text" name="rim_batch_size" class="form-control m-input" placeholder="Rim Batch Size" required>
+        <input type="text" name="rim_start_qty" class="form-control m-input" placeholder="Rim Starting Quantity" required>
+    
+        <h4>Tire Settings:</h4>
+        <input type="text" name="tire_batch_size" class="form-control m-input" placeholder="Tire Batch Size" required>
+        <input type="text" name="tire_start_qty" class="form-control m-input" placeholder="Tire Starting Quantity" required>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

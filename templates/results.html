@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Results</h2>
+    <h3>GHP Results</h3>
+    <div class="ghp">
+        {{ ghp|safe }}
+    </div>
+    <h3>MRP Results</h3>
+    {% for component_name, mrp in mrp %}
+    <div>
+        <h4>{{ component_name }} MRP</h4>
+        {{ mrp|safe }}
+    </div>
+    {% endfor %}
+</div>
+</body>
+<style>
+    .ghp thead {
+        display: none;
+    }
+</style>
+</html>
